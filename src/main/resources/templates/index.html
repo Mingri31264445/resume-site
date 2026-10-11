@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title th:text="${name} + '｜履歷'">履歷</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+  <div class="bg-stack">
+    <div class="bg bg-about active"></div>
+    <div class="bg bg-projects"></div>
+    <div class="bg bg-work"></div>
+    <div class="bg bg-edu"></div>
+    <div class="bg bg-skills"></div>
+    <div class="bg bg-contact"></div>
+  </div>
+
+  <nav class="topnav">
+    <a href="#about">個人</a>
+    <a href="#projects">專案</a>
+    <a href="#work">工作</a>
+    <a href="#edu">學歷</a>
+    <a href="#skills">技能</a>
+    <a href="#contact">聯絡</a>
+  </nav>
+
+  <main>
+
+    <a id="about" class="stage" data-bg="about" th:href="@{/about}">
+      <div class="stage-inner">
+        <div class="rail"><span class="node">01</span></div>
+        <div class="card">
+          <h2>個人</h2>
+          <p th:text="${name} + '｜' + ${intro}">簡介</p>
+          <span class="hint">點擊查看詳情 →</span>
+        </div>
+      </div>
+    </a>
+
+    <a id="projects" class="stage" data-bg="projects" th:href="@{/projects}">
+      <div class="stage-inner">
+        <div class="rail"><span class="node">02</span></div>
+        <div class="card">
+          <h2>專案經歷</h2>
+          <p>畢業專題、前端專案等作品。</p>
+          <span class="hint">點擊查看詳情 →</span>
+        </div>
+      </div>
+    </a>
+
+    <a id="work" class="stage" data-bg="work" th:href="@{/work}">
+      <div class="stage-inner">
+        <div class="rail"><span class="node">03</span></div>
+        <div class="card">
+          <h2>工作經歷</h2>
+          <p>工作與實務經驗。</p>
+          <span class="hint">點擊查看詳情 →</span>
+        </div>
+      </div>
+    </a>
+
+    <a id="edu" class="stage" data-bg="edu" th:href="@{/edu}">
+      <div class="stage-inner">
+        <div class="rail"><span class="node">04</span></div>
+        <div class="card">
+          <h2>學歷</h2>
+          <p>學校與主修。</p>
+          <span class="hint">點擊查看詳情 →</span>
+        </div>
+      </div>
+    </a>
+
+    <a id="skills" class="stage" data-bg="skills" th:href="@{/skills}">
+      <div class="stage-inner">
+        <div class="rail"><span class="node">05</span></div>
+        <div class="card">
+          <h2>技能</h2>
+          <p>Java、Spring Boot、SQL 等。</p>
+          <span class="hint">點擊查看詳情 →</span>
+        </div>
+      </div>
+    </a>
+
+    <a id="contact" class="stage" data-bg="contact" th:href="@{/contact}">
+      <div class="stage-inner">
+        <div class="rail"><span class="node">06</span></div>
+        <div class="card">
+          <h2>聯絡我</h2>
+          <p>Email、GitHub。</p>
+          <span class="hint">點擊查看詳情 →</span>
+        </div>
+      </div>
+    </a>
+
+  </main>
+
+  <script th:src="@{/js/main.js}"></script>
+</body>
+</html>
