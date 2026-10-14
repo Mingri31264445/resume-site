@@ -203,6 +203,7 @@
   color: var(--pj-muted);
 }
 .sec-projects .intro p {
+  white-space: pre-line;
   margin: 0;
   font-size: 18px;
   line-height: 1.9;
