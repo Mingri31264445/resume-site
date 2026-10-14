@@ -1,0 +1,189 @@
+/* ===== 學歷、專業技能：共用的版面與卡片 ===== */
+.sec-edu,
+.sec-skills {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: calc(var(--nav-h) + 24px) 20px 56px;
+}
+.sec-edu .edu-card,
+.sec-skills .skills-card {
+  width: min(960px, 100%);
+  padding: 40px 44px;
+  background: var(--card-bg);
+  -webkit-backdrop-filter: var(--card-filter);
+  backdrop-filter: var(--card-filter);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  color: var(--card-body);
+}
+.sec-edu .eyebrow,
+.sec-skills .eyebrow {
+  margin: 0 0 6px;
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  color: var(--card-accent);
+}
+.sec-edu .sec-title,
+.sec-skills .sec-title {
+  margin: 0 0 24px;
+  font-size: 30px;
+  color: var(--card-ink);
+}
+
+/* ===== 學歷：時間軸 ===== */
+.sec-edu .edu-list {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 28px;
+  position: relative;
+}
+.sec-edu .edu-list::before {
+  /* 垂直線 */
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background: var(--card-divider);
+}
+.sec-edu .edu-item {
+  position: relative;
+  padding-bottom: 30px;
+}
+.sec-edu .edu-item:last-child {
+  padding-bottom: 0;
+}
+.sec-edu .dot {
+  /* 圓點 */
+  position: absolute;
+  left: -28px;
+  top: 7px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--card-accent);
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.7);
+}
+.sec-edu .edu-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 6px 16px;
+}
+.sec-edu .edu-head h3 {
+  margin: 0;
+  font-size: 22px;
+  color: var(--card-ink);
+}
+.sec-edu .period {
+  font-size: 14px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--card-tag-bg);
+  color: var(--card-tag-text);
+}
+.sec-edu .edu-sub {
+  margin: 6px 0 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.sec-edu .status {
+  font-size: 13px;
+  padding: 2px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--card-divider);
+}
+.sec-edu .status.is-current {
+  background: var(--card-accent);
+  border-color: transparent;
+  color: #fff;
+}
+.sec-edu .edu-notes {
+  margin: 12px 0 0;
+  padding-left: 1.2em;
+  line-height: 1.8;
+}
+
+/* ===== 專業技能 ===== */
+.sec-skills .skill-groups {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px 32px;
+}
+.sec-skills .skill-group h3 {
+  margin: 0 0 10px;
+  font-size: 16px;
+  color: var(--card-accent);
+}
+.sec-skills .chips {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.sec-skills .chips li {
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: var(--card-tag-bg);
+  color: var(--card-tag-text);
+  font-size: 14px;
+  line-height: 1.4;
+}
+.sec-skills .chips small {
+  display: block;
+  font-size: 12px;
+  opacity: 0.75;
+}
+
+.sec-skills .certs {
+  margin-top: 30px;
+  padding-top: 26px;
+  border-top: 1px solid var(--card-divider);
+}
+.sec-skills .certs h3 {
+  margin: 0 0 14px;
+  font-size: 18px;
+  color: var(--card-ink);
+}
+.sec-skills .cert-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+.sec-skills .cert {
+  padding: 12px 16px;
+  border-left: 4px solid var(--card-accent);
+  border-radius: 8px;
+  background: var(--card-soft);
+}
+.sec-skills .cert-name {
+  display: block;
+  font-weight: 600;
+  color: var(--card-ink);
+}
+.sec-skills .cert-meta {
+  font-size: 13px;
+  color: var(--card-muted);
+}
+
+/* 手機 */
+@media (max-width: 760px) {
+  .sec-edu .edu-card,
+  .sec-skills .skills-card {
+    padding: 28px 22px;
+  }
+  .sec-skills .skill-groups,
+  .sec-skills .cert-list {
+    grid-template-columns: 1fr;
+  }
+}

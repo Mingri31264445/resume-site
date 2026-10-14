@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <body>
+    <th:block th:fragment="content">
+      <div class="skills-card">
+        <p class="eyebrow">SKILLS</p>
+        <h2 class="sec-title">專業技能</h2>
+
+        <div class="skill-groups">
+          <div class="skill-group" th:each="g : ${skillGroups}">
+            <h3 th:text="${g.name()}">類別</h3>
+            <ul class="chips">
+              <li th:each="s : ${g.items()}">
+                <span th:text="${s.name()}">技能</span>
+                <small th:if="${!s.note().isEmpty()}" th:text="${s.note()}">用在哪</small>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="certs">
+          <h3>證照</h3>
+          <ul class="cert-list">
+            <li class="cert" th:each="c : ${certificates}">
+              <span class="cert-name" th:text="${c.name()}">證照名稱</span>
+              <span class="cert-meta" th:text="${c.issuer()} + ' ・ ' + ${c.date()}">單位・日期</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </th:block>
+  </body>
+</html>

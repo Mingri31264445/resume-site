@@ -8,6 +8,7 @@
   <link rel="stylesheet" th:href="@{/css/projects.css}" />
   <link rel="stylesheet" th:href="@{/css/about.css}" />
   <link rel="stylesheet" th:href="@{/css/work.css}">
+  <link rel="stylesheet" th:href="@{/css/edu-skills.css}">
 </head>
 <body>
 
@@ -43,27 +44,13 @@
       <div th:replace="~{fragments/work :: content}"></div>
     </div>
 
-    <a id="edu" class="stage" data-bg="edu" th:href="@{/edu}">
-      <div class="stage-inner">
-        <div class="rail"><span class="node">04</span></div>
-        <div class="card">
-          <h2>學歷</h2>
-          <p>學習經歷與各項證照。</p>
-          <span class="hint">點擊查看詳情 →</span>
-        </div>
-      </div>
-    </a>
+    <div id="edu" class="sec-edu" data-bg="edu">
+      <div th:replace="~{fragments/education :: content}"></div>
+    </div>
 
-    <a id="skills" class="stage" data-bg="skills" th:href="@{/skills}">
-      <div class="stage-inner">
-        <div class="rail"><span class="node">05</span></div>
-        <div class="card">
-          <h2>專業技能</h2>
-          <p>程式技能專長。</p>
-          <span class="hint">點擊查看詳情 →</span>
-        </div>
-      </div>
-    </a>
+    <div id="skills" class="sec-skills" data-bg="skills">
+      <div th:replace="~{fragments/skills :: content}"></div>   <!-- 這裡是 skills，不是 education -->
+    </div>
 
     <a id="contact" class="stage" data-bg="contact" th:href="@{/contact}">
       <div class="stage-inner">

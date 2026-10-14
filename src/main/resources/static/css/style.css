@@ -381,3 +381,12 @@ main > .stage:last-child .rail::before {
 .sec-work .work-card {
   text-shadow: var(--card-halo);
 }
+
+.sec-projects .page-head,
+.sec-projects .project-card,
+.sec-about .about-card,
+.sec-work .work-card,
+.sec-edu .edu-card,
+.sec-skills .skills-card {
+  text-shadow: var(--card-halo);
+}

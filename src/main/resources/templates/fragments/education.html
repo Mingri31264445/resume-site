@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <body>
+    <th:block th:fragment="content">
+      <div class="edu-card">
+        <p class="eyebrow">EDUCATION</p>
+        <h2 class="sec-title">學歷</h2>
+
+        <ol class="edu-list">
+          <li class="edu-item" th:each="e : ${educations}">
+            <span class="dot" aria-hidden="true"></span>
+            <div class="edu-head">
+              <h3 th:text="${e.school()}">學校</h3>
+              <span class="period" th:text="${e.period()}">112/09 ~ 116/06</span>
+            </div>
+            <p class="edu-sub">
+              <span th:text="${e.dept()} + ' · ' + ${e.level()}">科系 · 大學</span>
+              <span class="status" th:text="${e.status()}"
+                    th:classappend="${e.status() == '在學'} ? 'is-current'">在學</span>
+            </p>
+            <ul class="edu-notes" th:if="${!e.highlights().isEmpty()}">
+              <li th:each="h : ${e.highlights()}" th:text="${h}">補充說明</li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+    </th:block>
+  </body>
+</html>
