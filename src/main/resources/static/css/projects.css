@@ -1,69 +1,131 @@
-/* ===================== 專案頁（深藍色，跟首頁同調） ===================== */
-.page-projects {
-  /* ---- 顏色都集中在這裡，想換色只改這一塊 ---- */
-  --pj-ink: #e8eaed; /* 主要文字 */
-  --pj-body: #dfe3e8; /* 介紹內文 */
-  --pj-muted: #aab3bd; /* 次要文字（標籤名稱、圖說） */
-  --pj-line: rgba(255, 255, 255, 0.12); /* 邊框 */
-  --pj-accent: #6ea8ff; /* 強調色（跟首頁同一個藍） */
-  --pj-card-bg: rgba(14, 18, 26, 0.72); /* 卡片底色 */
-  --pj-tag-bg: rgba(110, 168, 255, 0.16);
-  --pj-tag-text: #a9cbff;
-  --pj-btn-bg: #6ea8ff;
-  --pj-btn-text: #0b0e13;
-  --pj-btn-hover: #93bcff;
-  --pj-shot-bg: #1a2233; /* 圖片載入前的底色 */
-  --pj-hint-bg: rgba(11, 14, 19, 0.8);
+/* ===================== 專案區塊（深藍色，跟首頁同調） ===================== */
+.sec-projects {
+  /* 對應到 style.css 的共用色票 */
+  --pj-ink: var(--card-ink);
+  --pj-body: var(--card-body);
+  --pj-muted: var(--card-muted);
+  --pj-line: var(--card-border);
+  --pj-accent: var(--card-accent);
+  --pj-card-bg: var(--card-bg);
+  --pj-tag-bg: var(--card-tag-bg);
+  --pj-tag-text: var(--card-tag-text);
+  --pj-btn-bg: var(--card-accent);
+  --pj-btn-text: #ffffff;
+  --pj-btn-hover: var(--card-accent-hover);
+  --pj-shot-bg: var(--card-soft);
+  --pj-hint-bg: rgba(38, 54, 61, 0.88);
+  --pj-rail: rgba(255, 255, 255, 0.6); /* 時間軸的線：在照片上，用淺色 */
+  --pj-node-bg: #ffffff; /* 圓圈編號：白底 */
 
   color: var(--pj-ink);
 }
 
-/* 背景：深藍漸層（不使用照片） */
-.page-projects .bg-projects {
+/* 背景：你的照片 + 深藍遮罩（切到這一區時顯示） */
+.bg-stack .bg-projects {
   background-image:
-    linear-gradient(rgba(8, 10, 14, 0.7), rgba(8, 10, 14, 0.88)),
-    radial-gradient(ellipse at 15% 8%, #24476f 0%, transparent 55%),
-    radial-gradient(ellipse at 88% 38%, #2c514c 0%, transparent 50%),
-    radial-gradient(ellipse at 20% 78%, #3a3358 0%, transparent 55%);
-  background-color: #0b0e13;
+    linear-gradient(rgba(8, 12, 20, 0.3), rgba(8, 12, 20, 0.3)),
+    url("/images/bg-projects.jpg");
 }
 
-/* 頁首 */
-.page-projects .page-head {
-  max-width: 1120px;
-  margin: 0 auto;
-  padding: calc(var(--nav-h) + 56px) 32px 32px;
+/* 頁首：黑色半透明框 */
+.sec-projects .page-head {
+  box-sizing: border-box;
+  width: min(1056px, calc(100% - 64px));
+  margin: calc(var(--nav-h) + 40px) auto 40px;
+  padding: 32px 40px;
+  border-radius: 20px;
+  background: var(--pj-card-bg);
+  border: 1px solid var(--pj-line);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(8px);
 }
-.page-projects .eyebrow {
+.sec-projects .eyebrow {
   margin: 0;
   font-size: 13px;
   letter-spacing: 0.22em;
   font-weight: 700;
   color: var(--pj-accent);
 }
-.page-projects .page-head h1 {
+.sec-projects .page-head h1 {
   margin: 10px 0 14px;
   font-size: 48px;
   line-height: 1.2;
 }
-.page-projects .page-lead {
+.sec-projects .page-lead {
   margin: 0;
   max-width: 620px;
   font-size: 17px;
   color: var(--pj-muted);
 }
 
-/* 專案卡片 */
-.page-projects .projects {
-  max-width: 1120px;
+/* ---------- 時間軸 ---------- */
+.sec-projects .projects {
+  width: min(1056px, calc(100% - 64px));
   margin: 0 auto;
-  padding: 0 32px 64px;
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
+  padding-bottom: 64px;
 }
-.page-projects .project-card {
-  display: block; /* 取消舊的 section 規則造成的 flex */
+.sec-projects .timeline-item {
+  --node: 52px; /* 圓圈直徑 */
+  --cy: 61px; /* 圓圈中心離項目頂端的距離（對齊標題第一行） */
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr);
+  padding-bottom: 40px;
+}
+.sec-projects .timeline-item:last-child {
+  padding-bottom: 0;
+}
+.sec-projects .pj-rail {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+/* 從這個圓圈往下連到下一個圓圈 */
+.sec-projects .pj-rail::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 2px;
+  margin-left: -1px;
+  top: var(--cy);
+  bottom: calc(-1 * var(--cy));
+  background: var(--pj-rail);
+}
+.sec-projects .timeline-item:last-child .pj-rail::before {
+  display: none; /* 最後一個圓圈後面不再往下連 */
+}
+/* 第一個圓圈往上連到頁首框 */
+.sec-projects .timeline-item:first-child .pj-rail::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 2px;
+  margin-left: -1px;
+  top: -40px;
+  height: calc(40px + var(--cy));
+  background: var(--pj-rail);
+}
+.sec-projects .num {
+  position: relative;
+  z-index: 1;
+  flex: none;
+  width: var(--node);
+  height: var(--node);
+  margin-top: calc(var(--cy) - var(--node) / 2);
+  box-sizing: border-box;
+  border-radius: 50%;
+  border: 2px solid var(--pj-accent);
+  background: var(--pj-node-bg);
+  color: var(--pj-accent);
+  font-size: 17px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ---------- 專案卡片 ---------- */
+.sec-projects .project-card {
+  display: block; /* 取消舊 section 規則造成的 flex */
   min-height: 0;
   padding: 40px;
   border-radius: 20px;
@@ -72,72 +134,50 @@
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(8px);
 }
-
-/* 標題列：圓圈編號 + 專案名稱 */
-.page-projects .project-title {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-.page-projects .num {
-  flex: none;
-  width: 52px;
-  height: 52px;
-  box-sizing: border-box;
-  border-radius: 50%;
-  border: 2px solid var(--pj-accent);
-  color: var(--pj-accent);
-  font-size: 17px;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.page-projects .project-title h2 {
+.sec-projects .project-title h2 {
   margin: 0;
   font-size: 32px;
   line-height: 1.3;
 }
 
 /* 資料欄（左）+ 介紹（右） */
-.page-projects .project-body {
+.sec-projects .project-body {
   display: flex;
   flex-wrap: wrap;
   gap: 28px 56px;
   margin-top: 32px;
   align-items: flex-start;
 }
-.page-projects .meta {
+.sec-projects .meta {
   flex: 1 1 260px;
   margin: 0;
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
-.page-projects .meta dt {
+.sec-projects .meta dt {
   font-size: 13px;
   letter-spacing: 0.14em;
   color: var(--pj-muted);
   margin-bottom: 4px;
 }
-.page-projects .meta dd {
+.sec-projects .meta dd {
   margin: 0;
   font-size: 17px;
 }
-.page-projects .tags {
+.sec-projects .tags {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
 }
-.page-projects .tag {
+.sec-projects .tag {
   padding: 3px 14px;
   border-radius: 999px;
   background: var(--pj-tag-bg);
   color: var(--pj-tag-text);
   font-size: 14px;
 }
-.page-projects .btn {
+.sec-projects .btn {
   display: inline-block;
   padding: 10px 20px;
   border-radius: 10px;
@@ -147,22 +187,22 @@
   font-size: 15px;
   text-decoration: none;
 }
-.page-projects .btn:hover {
+.sec-projects .btn:hover {
   background: var(--pj-btn-hover);
   text-decoration: none;
 }
-.page-projects .intro {
+.sec-projects .intro {
   flex: 2 1 420px;
   min-width: 0;
 }
-.page-projects .intro h3 {
+.sec-projects .intro h3 {
   margin: 0 0 8px;
   font-size: 13px;
   font-weight: 400;
   letter-spacing: 0.14em;
   color: var(--pj-muted);
 }
-.page-projects .intro p {
+.sec-projects .intro p {
   margin: 0;
   font-size: 18px;
   line-height: 1.9;
@@ -170,22 +210,22 @@
 }
 
 /* 截圖：第一張撐滿整排，其餘兩張一列 */
-.page-projects .shots {
+.sec-projects .shots {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 28px 24px;
   margin-top: 40px;
 }
-.page-projects .shot {
+.sec-projects .shot {
   margin: 0;
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
-.page-projects .shot:first-child {
+.sec-projects .shot:first-child {
   grid-column: 1 / -1;
 }
-.page-projects .shot-btn {
+.sec-projects .shot-btn {
   position: relative;
   display: block;
   width: 100%;
@@ -197,39 +237,41 @@
   background: var(--pj-shot-bg);
   aspect-ratio: 16 / 10;
 }
-.page-projects .shot:first-child .shot-btn {
+.sec-projects .shot:first-child .shot-btn {
   aspect-ratio: 16 / 9;
   border-radius: 14px;
 }
-.page-projects .shot-btn img {
+.sec-projects .shot-btn img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.3s;
 }
-.page-projects .shot-btn:hover img {
+.sec-projects .shot-btn:hover img {
   transform: scale(1.03);
 }
-.page-projects .shot-btn:focus-visible {
+.sec-projects .shot-btn:focus-visible {
   outline: 2px solid var(--pj-accent);
   outline-offset: 3px;
 }
-.page-projects .zoom-hint {
+
+.sec-projects .zoom-hint {
   position: absolute;
   right: 12px;
   bottom: 12px;
   padding: 4px 12px;
   border-radius: 999px;
   background: var(--pj-hint-bg);
-  color: var(--pj-ink);
+  color: #ffffff; /* 原本是 var(--pj-ink)，現在 ink 變深色，要改白 */
   font-size: 13px;
 }
-.page-projects .shot figcaption {
+
+.sec-projects .shot figcaption {
   font-size: 15px;
   color: var(--pj-muted);
 }
-.page-projects .fig-no {
+.sec-projects .fig-no {
   margin-right: 8px;
   font-weight: 700;
   color: var(--pj-accent);
@@ -237,21 +279,32 @@
 
 /* 手機 */
 @media (max-width: 720px) {
-  .page-projects .page-head,
-  .page-projects .projects {
-    padding-left: 20px;
-    padding-right: 20px;
+  .sec-projects .page-head,
+  .sec-projects .projects {
+    width: calc(100% - 40px);
   }
-  .page-projects .page-head h1 {
-    font-size: 36px;
-  }
-  .page-projects .project-card {
+  .sec-projects .page-head {
+    margin-top: calc(var(--nav-h) + 24px);
     padding: 24px 20px;
   }
-  .page-projects .project-title h2 {
+  .sec-projects .page-head h1 {
+    font-size: 36px;
+  }
+  .sec-projects .timeline-item {
+    --node: 36px;
+    --cy: 40px;
+    grid-template-columns: 44px minmax(0, 1fr);
+  }
+  .sec-projects .num {
+    font-size: 13px;
+  }
+  .sec-projects .project-card {
+    padding: 24px 20px;
+  }
+  .sec-projects .project-title h2 {
     font-size: 24px;
   }
-  .page-projects .shots {
+  .sec-projects .shots {
     grid-template-columns: 1fr;
   }
 }

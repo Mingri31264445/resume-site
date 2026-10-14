@@ -1,0 +1,82 @@
+/* ===================== 個人區塊（白底黑字） ===================== */
+.sec-about {
+  min-height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: calc(var(--nav-h) + 24px) 0 40px;
+}
+
+.sec-about .about-card {
+  box-sizing: border-box;
+  width: min(1056px, calc(100% - 64px));
+  padding: 48px 56px;
+  border-radius: 20px;
+  background: var(--card-bg);
+  backdrop-filter: blur(var(--card-blur)); /* 新增 */
+  border: 1px solid var(--card-border);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+  color: var(--card-ink);
+}
+
+.sec-about .eyebrow {
+  margin: 0;
+  font-size: 13px;
+  letter-spacing: 0.22em;
+  font-weight: 700;
+  color: var(--card-accent);
+}
+
+.sec-about .about-name {
+  margin: 10px 0 4px;
+  font-size: 48px;
+  line-height: 1.2;
+}
+
+.sec-about .en-name {
+  margin: 0 0 20px;
+  font-size: 18px;
+  letter-spacing: 0.06em;
+  color: var(--card-muted);
+}
+
+.sec-about .about-lead {
+  margin: 0 0 32px;
+  font-size: 19px;
+  line-height: 1.8;
+}
+
+.sec-about .bio {
+  padding-top: 28px;
+  border-top: 1px solid var(--card-divider); /* 原本是 var(--card-border) */
+}
+
+.sec-about .bio h3 {
+  margin: 0 0 12px;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  color: var(--card-muted);
+}
+
+.sec-about .bio p {
+  margin: 0 0 14px;
+  font-size: 17px;
+  line-height: 1.95;
+  color: var(--card-body);
+}
+
+.sec-about .bio p:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 720px) {
+  .sec-about .about-card {
+    width: calc(100% - 40px);
+    padding: 32px 24px;
+  }
+  .sec-about .about-name {
+    font-size: 36px;
+  }
+}

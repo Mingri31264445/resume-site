@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title th:text="${name} + '｜履歷'">履歷</title>
   <link rel="stylesheet" th:href="@{/css/style.css}">
+  <link rel="stylesheet" th:href="@{/css/projects.css}" />
+  <link rel="stylesheet" th:href="@{/css/about.css}" />
 </head>
 <body>
 
@@ -28,27 +30,13 @@
 
   <main>
 
-    <a id="about" class="stage" data-bg="about" th:href="@{/about}">
-      <div class="stage-inner">
-        <div class="rail"><span class="node">01</span></div>
-        <div class="card">
-          <h2>個人</h2>
-          <p th:text="${name} + '｜' + ${intro}">簡介</p>
-          <span class="hint">點擊查看詳情 →</span>
-        </div>
-      </div>
-    </a>
+    <div id="about" class="sec-about" data-bg="about">
+      <div th:replace="~{fragments/about :: content}"></div>
+    </div>
 
-    <a id="projects" class="stage" data-bg="projects" th:href="@{/projects}">
-      <div class="stage-inner">
-        <div class="rail"><span class="node">02</span></div>
-        <div class="card">
-          <h2>專案經歷</h2>
-          <p>畢業專題、前端專案等作品。</p>
-          <span class="hint">點擊查看詳情 →</span>
-        </div>
-      </div>
-    </a>
+    <div id="projects" class="sec-projects" data-bg="projects">
+      <div th:replace="~{fragments/projects :: content}"></div>
+    </div>
 
     <a id="work" class="stage" data-bg="work" th:href="@{/work}">
       <div class="stage-inner">

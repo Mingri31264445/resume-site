@@ -58,27 +58,27 @@ a:hover {
 /* 每張圖上面疊一層半透明黑色，讓背景偏暗、不搶文字 */
 .bg-about {
   background-image:
-    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
     url("/images/bg-about.jpg");
 }
 .bg-projects {
   background-image:
-    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)),
     url("/images/bg-projects.jpg");
 }
 .bg-work {
   background-image:
-    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
     url("/images/bg-work.jpg");
 }
 .bg-edu {
   background-image:
-    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
     url("/images/bg-edu.jpg");
 }
 .bg-skills {
   background-image:
-    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
     url("/images/bg-skills.jpg");
 }
 .bg-contact {
@@ -107,7 +107,7 @@ a:hover {
 }
 .topnav a {
   color: var(--text);
-  font-size: 0.95rem;
+  font-size: 1.1rem;
 }
 
 /* ===== 每個版面 ===== */
@@ -345,4 +345,32 @@ main > .stage:last-child .rail::before {
   .sheet {
     padding: 22px;
   }
+}
+
+/* ===== 共用：內容卡片主題（半透明白色毛玻璃），各區塊都用這組 ===== */
+:root {
+  --card-bg: rgba(255, 255, 255, 0.9); /* 半透明白：數字越小越透明 */
+  --card-filter: blur(20px) brightness(1.6) saturate(1.15); /* 玻璃：模糊 + 加亮 */
+  --card-halo: 0 0 12px rgba(255, 255, 255, 0.6); /* 文字光暈 */
+  --card-border: rgba(255, 255, 255, 0.6); /* 玻璃邊緣 */
+  --card-divider: rgba(20, 31, 36, 0.18); /* 卡片內的分隔線 */
+  --card-ink: #0f181c; /* 主要文字 */
+  --card-body: #0f181c; /* 內文 */
+  --card-muted: #0f181c; /* 原本是灰色，現在也用黑色 */
+  --card-accent: #8f3f39; /* 強調色（深赭紅） */
+  --card-accent-hover: #75322d;
+  --card-tag-bg: rgba(143, 63, 57, 0.14);
+  --card-tag-text: #6f2f2a;
+  --card-soft: rgba(20, 31, 36, 0.1); /* 圖片載入前的底色 */
+}
+
+/* 卡片上的文字加光暈，按鈕和標籤上的字不用 */
+.sec-projects .page-head,
+.sec-projects .project-card,
+.sec-about .about-card {
+  text-shadow: var(--card-halo);
+}
+.sec-projects .btn,
+.sec-projects .zoom-hint {
+  text-shadow: none;
 }
