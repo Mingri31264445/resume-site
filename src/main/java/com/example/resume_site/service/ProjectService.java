@@ -21,24 +21,47 @@ public class ProjectService {
             """,
             "整合協調、前端開發、後端開發",
             List.of("YOLOv11", "Python", "Django", "SQLite", "HTML", "CSS", "JavaScript"),
-            "",   // 還沒有公開的 repo 就先留空字串
+            "https://github.com/Mingri31264445/health-analysis-system.git",
             List.of(
                 new ProjectImage("/images/projects/facial-diagnosis/1.jpg", "首頁畫面"),
-                new ProjectImage("/images/projects/facial-diagnosis/2.jpg", "BFS 分析結果頁"),
-                new ProjectImage("/images/projects/facial-diagnosis/3.jpg", "經絡儀分析結果頁")
+                new ProjectImage("/images/projects/facial-diagnosis/2.jpg", "BFS 原始報告"),
+                new ProjectImage("/images/projects/facial-diagnosis/3.jpg", "BFS 分析結果頁"),
+                new ProjectImage("/images/projects/facial-diagnosis/4.jpg", "經絡儀原始報告"),
+                new ProjectImage("/images/projects/facial-diagnosis/5.jpg", "經絡儀分析結果頁")
+            )
+        ),
+        new Project(
+            "app-shopping-cart",
+            "Android 購物車 App 介面開發",
+            "大二",
+            """
+            以 Android Studio 開發的購物車 App 介面，包含商品列表、商品篩選、購物車頁面等功能。
+            透過這個專案，我學習了 Android 開發的基本流程，UI 設計，以及如何使用 Java 進行程式邏輯的實作。這個專案讓我對移動應用程式開發有了更深入的了解，並且提升了我的程式設計能力。     
+            """,
+            "獨立開發",
+            List.of("Android", "Java"),
+            "https://github.com/Mingri31264445/AppFunalQuiz_12131361.git",
+            List.of(
+                new ProjectImage("/images/projects/app-shopping-cart/1.jpg", "商品列表"),
+                new ProjectImage("/images/projects/app-shopping-cart/2.jpg", "商品篩選"),
+                new ProjectImage("/images/projects/app-shopping-cart/3.jpg", "購物車頁面")
             )
         ),
         new Project(
             "shopping-cart",
-            "Angular 購物車前端專案",
-            "大三",
-            "以 Angular 開發的購物車前端，串接 REST API。",
+            "ASP.NET core MVC 購物商城前端專案",
+            "大二",
+            """
+            以 ASP.NET core MVC 開發的購物商城前端專案，包含商品列表、商品詳情、購物車頁面等功能。
+            透過這個專案，我學習了 ASP.NET core MVC 的基本架構，前端頁面設計，以及如何使用 C# 進行程式邏輯的實作。這個專案讓我對 Web 開發有了更深入的了解，並且提升了我的程式設計能力。
+            """,
             "獨立開發",
-            List.of("Angular", "TypeScript"),
-            "",
+            List.of("ASP.NET", "C#"),
+            "https://github.com/Mingri31264445/WebFinalExam.git",
             List.of(
-                new ProjectImage("/images/projects/shopping-cart/1.jpg", "商品列表"),
-                new ProjectImage("/images/projects/shopping-cart/2.jpg", "購物車頁面")
+                new ProjectImage("/images/projects/shopping-cart/1.jpg", "商城主頁面"),
+                new ProjectImage("/images/projects/shopping-cart/2.jpg", "商品詳情頁面"),
+                new ProjectImage("/images/projects/shopping-cart/3.jpg", "購物車頁面")
             )
         )
     );
