@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <body>
+    <th:block th:fragment="content">
+      <div class="contact-card">
+        <p class="eyebrow">CONTACT</p>
+        <h2 class="sec-title">聯絡我</h2>
+        <p class="contact-lead">我正在尋找 Java 後端實習機會，歡迎來信，或到 GitHub 看我的程式碼。</p>
+
+        <ul class="contact-list">
+          <li>
+            <a class="contact-item" th:href="'mailto:' + ${email}">
+              <span class="c-label">Email</span>
+              <span class="c-value" th:text="${email}">email</span>
+            </a>
+          </li>
+          <li>
+            <a class="contact-item" th:href="${github}" target="_blank" rel="noopener noreferrer">
+              <span class="c-label">GitHub</span>
+              <span class="c-value" th:text="${#strings.replace(github, 'https://', '')}">github.com/…</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </th:block>
+  </body>
+</html>

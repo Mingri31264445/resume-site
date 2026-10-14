@@ -9,6 +9,7 @@
   <link rel="stylesheet" th:href="@{/css/about.css}" />
   <link rel="stylesheet" th:href="@{/css/work.css}">
   <link rel="stylesheet" th:href="@{/css/edu-skills.css}">
+  <link rel="stylesheet" th:href="@{/css/contact.css}">
 </head>
 <body>
 
@@ -52,16 +53,9 @@
       <div th:replace="~{fragments/skills :: content}"></div>   <!-- 這裡是 skills，不是 education -->
     </div>
 
-    <a id="contact" class="stage" data-bg="contact" th:href="@{/contact}">
-      <div class="stage-inner">
-        <div class="rail"><span class="node">06</span></div>
-        <div class="card">
-          <h2>聯絡我</h2>
-          <p>Email、GitHub。</p>
-          <span class="hint">點擊查看詳情 →</span>
-        </div>
-      </div>
-    </a>
+    <div id="contact" class="sec-contact" data-bg="contact">
+      <div th:replace="~{fragments/contact :: content}"></div>
+    </div>
 
   </main>
 
