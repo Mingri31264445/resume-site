@@ -11,27 +11,23 @@ import com.example.resume_site.model.ProjectImage;
 public class WorkService {
 
     private final List<Job> jobs = List.of(
-        // 最近這段：有 2 張照片（排最前面）
         new Job(
-            "公司名稱 A",
-            "職稱",
-            "2025.07 ~ 至今",
+            "明光義塾",
+            "行政老師",
+            "2024.12 ~ 至今",
             List.of(
-                "做了什麼事情 1",
-                "做了什麼事情 2",
-                "做了什麼事情 3"
+                "管理學生資料，協助老師安排每日課程",
+                "幫助學生解決學習上的問題，提供學習建議",
+                "協助老師準備教學材料，確保課程順利進行",
+                "與家長保持良好溝通，回報學生學習進度與表現"
             ),
             List.of(
-                new ProjectImage("/images/work/1.jpg", "照片說明 1"),
-                new ProjectImage("/images/work/2.jpg", "照片說明 2")
+                new ProjectImage("/images/work/1.jpg", "上課示意圖"),
+                new ProjectImage("/images/work/2.jpg", "中秋禮盒")
             )
         ),
-        // 較早的兩段：沒有照片，photos 給 List.of()
-        new Job("公司名稱 B", "職稱", "2024.01 ~ 2024.12",
-                List.of("做了什麼事情 1", "做了什麼事情 2"),
-                List.of()),
-        new Job("公司名稱 C", "職稱", "2023.06 ~ 2023.12",
-                List.of("做了什麼事情 1", "做了什麼事情 2"),
+        new Job("台灣中油", "加油員", "2023.03 ~ 2024.11",
+                List.of("負責加油站油品販售", "協助顧客解決加油或會員相關問題"),
                 List.of())
     );
 
