@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <body>
+    <th:block th:fragment="content">
+      <div class="work-card">
+        <p class="eyebrow">EXPERIENCE</p>
+        <h2 class="work-title">工作經歷</h2>
+
+        <div class="jobs">
+          <article class="job" th:each="j : ${jobs}"
+                   th:classappend="${!j.photos().isEmpty()} ? 'has-photos'">
+
+            <div class="job-main">
+              <div class="job-head">
+                <h3 th:text="${j.company()}">公司名稱</h3>
+                <span class="period" th:text="${j.period()}">2025.07 ~ 至今</span>
+              </div>
+              <p class="job-role" th:text="${j.role()}">職稱</p>
+              <ul class="duties">
+                <li th:each="d : ${j.duties()}" th:text="${d}">工作內容</li>
+              </ul>
+            </div>
+
+            <!-- 沒有照片的工作不會產生這一塊 -->
+            <div class="job-photos" th:if="${!j.photos().isEmpty()}">
+              <figure th:each="ph : ${j.photos()}">
+                <button type="button" class="shot-btn work-photo"
+                        th:data-full="@{${ph.src()}}"
+                        th:data-caption="${ph.caption()}"
+                        th:aria-label="'放大：' + ${ph.caption()}">
+                  <img th:src="@{${ph.src()}}" th:alt="${ph.caption()}" loading="lazy" />
+                </button>
+              </figure>
+            </div>
+
+          </article>
+        </div>
+      </div>
+    </th:block>
+  </body>
+</html>

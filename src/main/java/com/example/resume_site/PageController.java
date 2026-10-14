@@ -5,14 +5,17 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.example.resume_site.service.ProjectService;
+import com.example.resume_site.service.WorkService;
 
 @Controller
 public class PageController {
 
     private final ProjectService projectService;
+    private final WorkService workService;
 
-    public PageController(ProjectService projectService) {
+    public PageController(ProjectService projectService, WorkService workService) {
         this.projectService = projectService;
+        this.workService = workService;
     }
 
     // 首頁跟個人頁都要用到基本資料，抽成一個方法，避免寫兩次
@@ -29,6 +32,7 @@ public class PageController {
     public String home(Model model) {
         addProfile(model);
         model.addAttribute("projects", projectService.findAll());
+        model.addAttribute("jobs", workService.findAll());
         return "index";
     }
 

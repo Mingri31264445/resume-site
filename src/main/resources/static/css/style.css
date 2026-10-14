@@ -374,3 +374,10 @@ main > .stage:last-child .rail::before {
 .sec-projects .zoom-hint {
   text-shadow: none;
 }
+
+.sec-projects .page-head,
+.sec-projects .project-card,
+.sec-about .about-card,
+.sec-work .work-card {
+  text-shadow: var(--card-halo);
+}

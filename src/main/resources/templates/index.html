@@ -7,6 +7,7 @@
   <link rel="stylesheet" th:href="@{/css/style.css}">
   <link rel="stylesheet" th:href="@{/css/projects.css}" />
   <link rel="stylesheet" th:href="@{/css/about.css}" />
+  <link rel="stylesheet" th:href="@{/css/work.css}">
 </head>
 <body>
 
@@ -38,16 +39,9 @@
       <div th:replace="~{fragments/projects :: content}"></div>
     </div>
 
-    <a id="work" class="stage" data-bg="work" th:href="@{/work}">
-      <div class="stage-inner">
-        <div class="rail"><span class="node">03</span></div>
-        <div class="card">
-          <h2>工作經歷</h2>
-          <p>職場經驗與經歷。</p>
-          <span class="hint">點擊查看詳情 →</span>
-        </div>
-      </div>
-    </a>
+    <div id="work" class="sec-work" data-bg="work">
+      <div th:replace="~{fragments/work :: content}"></div>
+    </div>
 
     <a id="edu" class="stage" data-bg="edu" th:href="@{/edu}">
       <div class="stage-inner">

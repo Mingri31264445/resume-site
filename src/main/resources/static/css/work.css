@@ -1,0 +1,121 @@
+/* ===== 工作經歷區塊（所有選擇器都加 .sec-work，不影響其他區塊） ===== */
+.sec-work {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: calc(var(--nav-h) + 24px) 20px 56px;
+}
+
+.sec-work .work-card {
+  width: min(960px, 100%);
+  padding: 40px 44px;
+  background: var(--card-bg);
+  -webkit-backdrop-filter: var(--card-filter);
+  backdrop-filter: var(--card-filter);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  color: var(--card-body);
+}
+
+.sec-work .eyebrow {
+  margin: 0 0 6px;
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  color: var(--card-accent);
+}
+
+.sec-work .work-title {
+  margin: 0 0 20px;
+  font-size: 30px;
+  color: var(--card-ink);
+}
+
+/* 每一段工作 */
+.sec-work .job {
+  padding: 26px 0;
+  border-top: 1px solid var(--card-divider);
+}
+.sec-work .job:first-child {
+  border-top: 0;
+  padding-top: 8px;
+}
+
+/* 有照片的那一段：左文字、右照片 */
+.sec-work .job.has-photos {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 28px;
+  align-items: start;
+}
+
+.sec-work .job-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px 16px;
+}
+.sec-work .job-head h3 {
+  margin: 0;
+  font-size: 21px;
+  color: var(--card-ink);
+}
+.sec-work .period {
+  font-size: 14px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--card-tag-bg);
+  color: var(--card-tag-text);
+}
+.sec-work .job-role {
+  margin: 6px 0 12px;
+  color: var(--card-accent);
+  font-weight: 600;
+}
+.sec-work .duties {
+  margin: 0;
+  padding-left: 1.2em;
+  line-height: 1.8;
+}
+
+/* 兩張 1:1 照片並排 */
+.sec-work .job-photos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.sec-work .job-photos figure {
+  margin: 0;
+}
+.sec-work .work-photo {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  padding: 0;
+  border: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: zoom-in;
+  background: none;
+}
+.sec-work .work-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.25s ease;
+}
+.sec-work .work-photo:hover img {
+  transform: scale(1.05);
+}
+
+/* 手機：改成上下排 */
+@media (max-width: 760px) {
+  .sec-work .work-card {
+    padding: 28px 22px;
+  }
+  .sec-work .job.has-photos {
+    grid-template-columns: 1fr;
+  }
+}
