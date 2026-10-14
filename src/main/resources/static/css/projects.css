@@ -309,3 +309,69 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* ===== 圖片放大視窗 ===== */
+.lightbox {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 24px;
+  box-sizing: border-box;
+  border: none;
+  background: transparent;
+  color: #fff;
+}
+.lightbox[open] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.lightbox::backdrop {
+  background: rgba(8, 10, 14, 0.88);
+  backdrop-filter: blur(6px);
+}
+.lightbox figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  max-width: 100%;
+  max-height: 100%;
+}
+.lightbox-img {
+  max-width: min(1400px, 100%);
+  max-height: calc(100vh - 120px);
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+.lightbox-caption {
+  font-size: 16px;
+  color: #e8eaed;
+  text-align: center;
+}
+.lightbox-close {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+}
+.lightbox-close:hover {
+  background: rgba(255, 255, 255, 0.28);
+}
+
+/* 視窗打開時，背後的頁面不要跟著捲動 */
+body:has(.lightbox[open]) {
+  overflow: hidden;
+}
