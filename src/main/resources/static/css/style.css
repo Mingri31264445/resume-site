@@ -58,12 +58,12 @@ a:hover {
 /* 每張圖上面疊一層半透明黑色，讓背景偏暗、不搶文字 */
 .bg-about {
   background-image:
-    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url("/images/bg-about.jpg");
 }
 .bg-projects {
   background-image:
-    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url("/images/bg-projects.jpg");
 }
 .bg-work {
@@ -83,7 +83,7 @@ a:hover {
 }
 .bg-contact {
   background-image:
-    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
     url("/images/bg-contact.jpg");
 }
 
@@ -345,30 +345,4 @@ main > .stage:last-child .rail::before {
   .sheet {
     padding: 22px;
   }
-}
-
-/* ===== 測試用，確認後整段刪除 ===== */
-.bg-about {
-  background-image: none;
-  background-color: #1e3a8a;
-}
-.bg-projects {
-  background-image: none;
-  background-color: #7c2d12;
-}
-.bg-work {
-  background-image: none;
-  background-color: #14532d;
-}
-.bg-edu {
-  background-image: none;
-  background-color: #581c87;
-}
-.bg-skills {
-  background-image: none;
-  background-color: #7f1d1d;
-}
-.bg-contact {
-  background-image: none;
-  background-color: #134e4a;
 }
