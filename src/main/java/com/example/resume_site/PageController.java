@@ -17,14 +17,14 @@ public class PageController {
     private final EducationService educationService;
     private final SkillService skillService;
 
-    public PageController(ProjectService projectService, WorkService workService, EducationService educationService, SkillService skillService) {
+    public PageController(ProjectService projectService, WorkService workService,
+                          EducationService educationService, SkillService skillService) {
         this.projectService = projectService;
         this.workService = workService;
         this.educationService = educationService;
         this.skillService = skillService;
     }
 
-    // 首頁跟個人頁都要用到基本資料，抽成一個方法，避免寫兩次
     private void addProfile(Model model) {
         model.addAttribute("name", "宗恩");
         model.addAttribute("englishName", "Wayne Tsung-En Yang");
@@ -43,17 +43,5 @@ public class PageController {
         model.addAttribute("skillGroups", skillService.groups());
         model.addAttribute("certificates", skillService.certificates());
         return "index";
-    }
-
-    @GetMapping("/about")
-    public String about(Model model) {
-        addProfile(model);
-        return "about";
-    }
-    
-    @GetMapping("/projects")
-    public String projects(Model model) {
-        model.addAttribute("projects", projectService.findAll());
-        return "projects";
     }
 }
