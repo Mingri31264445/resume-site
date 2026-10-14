@@ -1,0 +1,257 @@
+/* ===================== 專案頁（深藍色，跟首頁同調） ===================== */
+.page-projects {
+  /* ---- 顏色都集中在這裡，想換色只改這一塊 ---- */
+  --pj-ink: #e8eaed; /* 主要文字 */
+  --pj-body: #dfe3e8; /* 介紹內文 */
+  --pj-muted: #aab3bd; /* 次要文字（標籤名稱、圖說） */
+  --pj-line: rgba(255, 255, 255, 0.12); /* 邊框 */
+  --pj-accent: #6ea8ff; /* 強調色（跟首頁同一個藍） */
+  --pj-card-bg: rgba(14, 18, 26, 0.72); /* 卡片底色 */
+  --pj-tag-bg: rgba(110, 168, 255, 0.16);
+  --pj-tag-text: #a9cbff;
+  --pj-btn-bg: #6ea8ff;
+  --pj-btn-text: #0b0e13;
+  --pj-btn-hover: #93bcff;
+  --pj-shot-bg: #1a2233; /* 圖片載入前的底色 */
+  --pj-hint-bg: rgba(11, 14, 19, 0.8);
+
+  color: var(--pj-ink);
+}
+
+/* 背景：深藍漸層（不使用照片） */
+.page-projects .bg-projects {
+  background-image:
+    linear-gradient(rgba(8, 10, 14, 0.7), rgba(8, 10, 14, 0.88)),
+    radial-gradient(ellipse at 15% 8%, #24476f 0%, transparent 55%),
+    radial-gradient(ellipse at 88% 38%, #2c514c 0%, transparent 50%),
+    radial-gradient(ellipse at 20% 78%, #3a3358 0%, transparent 55%);
+  background-color: #0b0e13;
+}
+
+/* 頁首 */
+.page-projects .page-head {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: calc(var(--nav-h) + 56px) 32px 32px;
+}
+.page-projects .eyebrow {
+  margin: 0;
+  font-size: 13px;
+  letter-spacing: 0.22em;
+  font-weight: 700;
+  color: var(--pj-accent);
+}
+.page-projects .page-head h1 {
+  margin: 10px 0 14px;
+  font-size: 48px;
+  line-height: 1.2;
+}
+.page-projects .page-lead {
+  margin: 0;
+  max-width: 620px;
+  font-size: 17px;
+  color: var(--pj-muted);
+}
+
+/* 專案卡片 */
+.page-projects .projects {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 32px 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.page-projects .project-card {
+  display: block; /* 取消舊的 section 規則造成的 flex */
+  min-height: 0;
+  padding: 40px;
+  border-radius: 20px;
+  background: var(--pj-card-bg);
+  border: 1px solid var(--pj-line);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(8px);
+}
+
+/* 標題列：圓圈編號 + 專案名稱 */
+.page-projects .project-title {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.page-projects .num {
+  flex: none;
+  width: 52px;
+  height: 52px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  border: 2px solid var(--pj-accent);
+  color: var(--pj-accent);
+  font-size: 17px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.page-projects .project-title h2 {
+  margin: 0;
+  font-size: 32px;
+  line-height: 1.3;
+}
+
+/* 資料欄（左）+ 介紹（右） */
+.page-projects .project-body {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px 56px;
+  margin-top: 32px;
+  align-items: flex-start;
+}
+.page-projects .meta {
+  flex: 1 1 260px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.page-projects .meta dt {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: var(--pj-muted);
+  margin-bottom: 4px;
+}
+.page-projects .meta dd {
+  margin: 0;
+  font-size: 17px;
+}
+.page-projects .tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.page-projects .tag {
+  padding: 3px 14px;
+  border-radius: 999px;
+  background: var(--pj-tag-bg);
+  color: var(--pj-tag-text);
+  font-size: 14px;
+}
+.page-projects .btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 10px;
+  background: var(--pj-btn-bg);
+  color: var(--pj-btn-text);
+  font-weight: 700;
+  font-size: 15px;
+  text-decoration: none;
+}
+.page-projects .btn:hover {
+  background: var(--pj-btn-hover);
+  text-decoration: none;
+}
+.page-projects .intro {
+  flex: 2 1 420px;
+  min-width: 0;
+}
+.page-projects .intro h3 {
+  margin: 0 0 8px;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  color: var(--pj-muted);
+}
+.page-projects .intro p {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.9;
+  color: var(--pj-body);
+}
+
+/* 截圖：第一張撐滿整排，其餘兩張一列 */
+.page-projects .shots {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px 24px;
+  margin-top: 40px;
+}
+.page-projects .shot {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.page-projects .shot:first-child {
+  grid-column: 1 / -1;
+}
+.page-projects .shot-btn {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 1px solid var(--pj-line);
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: zoom-in;
+  background: var(--pj-shot-bg);
+  aspect-ratio: 16 / 10;
+}
+.page-projects .shot:first-child .shot-btn {
+  aspect-ratio: 16 / 9;
+  border-radius: 14px;
+}
+.page-projects .shot-btn img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+.page-projects .shot-btn:hover img {
+  transform: scale(1.03);
+}
+.page-projects .shot-btn:focus-visible {
+  outline: 2px solid var(--pj-accent);
+  outline-offset: 3px;
+}
+.page-projects .zoom-hint {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: var(--pj-hint-bg);
+  color: var(--pj-ink);
+  font-size: 13px;
+}
+.page-projects .shot figcaption {
+  font-size: 15px;
+  color: var(--pj-muted);
+}
+.page-projects .fig-no {
+  margin-right: 8px;
+  font-weight: 700;
+  color: var(--pj-accent);
+}
+
+/* 手機 */
+@media (max-width: 720px) {
+  .page-projects .page-head,
+  .page-projects .projects {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .page-projects .page-head h1 {
+    font-size: 36px;
+  }
+  .page-projects .project-card {
+    padding: 24px 20px;
+  }
+  .page-projects .project-title h2 {
+    font-size: 24px;
+  }
+  .page-projects .shots {
+    grid-template-columns: 1fr;
+  }
+}

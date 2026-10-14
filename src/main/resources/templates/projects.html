@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>專案經歷｜宗恩</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+    <link rel="stylesheet" th:href="@{/css/projects.css}" />
+  </head>
+  <body class="page-projects">
+    <div class="bg-stack">
+      <div class="bg bg-projects active"></div>
+    </div>
+
+    <nav class="topnav">
+      <a th:href="@{/}">← 回首頁</a>
+    </nav>
+
+    <header class="page-head">
+      <p class="eyebrow">02 · PROJECTS</p>
+      <h1>專案經歷</h1>
+      <p class="page-lead">
+        挑選幾個具代表性的專案。每個專案附上畫面截圖，點擊圖片可以放大查看。
+      </p>
+    </header>
+
+    <main class="projects">
+      <section class="project-card" th:each="p, st : ${projects}">
+        <div class="project-title">
+          <span class="num" th:text="${#numbers.formatInteger(st.count, 2)}">01</span>
+          <h2 th:text="${p.title()}">專案名稱</h2>
+        </div>
+
+        <div class="project-body">
+          <dl class="meta">
+            <div>
+              <dt>技術</dt>
+              <dd class="tags">
+                <span class="tag" th:each="t : ${p.tech()}" th:text="${t}">Java</span>
+              </dd>
+            </div>
+            <div>
+              <dt>時間</dt>
+              <dd th:text="${p.period()}">大一下</dd>
+            </div>
+            <div>
+              <dt>我的角色</dt>
+              <dd th:text="${p.role()}">角色</dd>
+            </div>
+            <div th:if="${p.repoUrl() != null and !p.repoUrl().isEmpty()}">
+              <dt>GitHub</dt>
+              <dd>
+                <a class="btn" th:href="${p.repoUrl()}" target="_blank" rel="noopener">查看原始碼</a>
+              </dd>
+            </div>
+          </dl>
+
+          <div class="intro">
+            <h3>介紹</h3>
+            <p th:text="${p.summary()}">介紹</p>
+          </div>
+        </div>
+
+        <div class="shots">
+          <figure class="shot" th:each="img, ist : ${p.images()}">
+            <button
+              type="button"
+              class="shot-btn"
+              th:data-full="@{${img.src()}}"
+              th:data-caption="${img.caption()}"
+              th:aria-label="'放大：' + ${img.caption()}"
+            >
+              <img th:src="@{${img.src()}}" th:alt="${img.caption()}" loading="lazy" />
+              <span class="zoom-hint">點擊放大</span>
+            </button>
+            <figcaption>
+              <span class="fig-no" th:text="'圖 ' + ${ist.count}">圖 1</span>
+              <span th:text="${img.caption()}">圖說</span>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

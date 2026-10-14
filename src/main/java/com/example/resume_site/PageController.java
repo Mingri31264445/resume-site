@@ -37,4 +37,10 @@ public class PageController {
         addProfile(model);
         return "about";
     }
+    
+    @GetMapping("/projects")
+    public String projects(Model model) {
+        model.addAttribute("projects", projectService.findAll());
+        return "projects";
+    }
 }
